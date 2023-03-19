@@ -1,0 +1,135 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbnr5q8cehwmg"]
+
+[ext_resource type="Texture2D" uid="uid://d3737v6a8ejim" path="res://Assets/OnePiece_Character_Sheet.jpg" id="1_eca6u"]
+[ext_resource type="Texture2D" uid="uid://btrgc0k62ypkw" path="res://Assets/PlusChar.jpg" id="3_krab3"]
+
+[node name="selectionScreen" type="Node"]
+
+[node name="backGround" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eca6u")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Main" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/CenterContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="lblTitel" type="Label" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "One Piece"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lblSubTitel" type="Label" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "A tale Untold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="btnChars" type="Button" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Characters"
+
+[node name="btnDFEnc" type="Button" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Devil Fruit Enceclopydia"
+
+[node name="btnDFGacha" type="Button" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Devil Fruit Gacha"
+
+[node name="btnCampaigns" type="Button" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Campaigns"
+
+[node name="btnBack" type="Button" parent="CanvasLayer/Main/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "back"
+
+[node name="Characters" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Characters"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Characters/CenterContainer"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Characters/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Characters/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Characters/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Characters/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 68
+theme_override_constants/v_separation = 40
+columns = 6
+
+[node name="txtRctAddChar" type="TextureRect" parent="CanvasLayer/Characters/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_krab3")

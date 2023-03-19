@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=3 uid="uid://pvgqbsc1g5tn"]
+
+[ext_resource type="Texture2D" uid="uid://d3737v6a8ejim" path="res://Assets/OnePiece_Character_Sheet.jpg" id="1_ks363"]
+[ext_resource type="Script" path="res://Scripts/CLMainMenu.gd" id="2_lvsrv"]
+
+[node name="MainMenu" type="Node"]
+
+[node name="backGround" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ks363")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_lvsrv")
+
+[node name="Main" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Main/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="lblTitel" type="Label" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
+text = "One Piece"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lblSubTitel" type="Label" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "A Tale Untold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnStart" type="Button" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="btnOptions" type="Button" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Options"
+
+[node name="btnQuit" type="Button" parent="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="Options" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Options/CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Options/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Options/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Options/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="lblOptions" type="Label" parent="CanvasLayer/Options/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnBack" type="Button" parent="CanvasLayer/Options/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/btnStart" to="CanvasLayer" method="_on_btn_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/btnOptions" to="CanvasLayer" method="_on_btn_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/btnQuit" to="CanvasLayer" method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Options/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/btnBack" to="CanvasLayer" method="_on_btn_back_pressed"]
